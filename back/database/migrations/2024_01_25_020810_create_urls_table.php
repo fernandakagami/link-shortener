@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();            
-            $table->string('email')->unique();            
-            $table->string('password');            
+        Schema::create('urls', function (Blueprint $table) {
+            $table->id();
+            $table->string('original_url');
+            $table->string('shortener_url');
+            $table->foreignId('users_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('urls');
     }
 };
