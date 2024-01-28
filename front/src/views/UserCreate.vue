@@ -33,38 +33,35 @@ export default {
 </script>
 
 <template>
-  <div class="container mx-auto mt-48 flex flex-col justify-start items-center w-full max-w-xl">
-    <div class="border-2 w-[500px] rounded">
-      <div class="my-4 flex  justify-center items-center relative">
-        <div class="cursor-pointer absolute left-[23px] flex justify-center items-center">
-          <Icon icon="material-symbols:arrow-back" color="#2563eb" />
-          <router-link class="text-xs ms-1 text-[#2563eb] cursor-pointer" to="/">Voltar</router-link>
-        </div>
-        <h1 class="text-2xl text-center">Crie um usuário</h1>
+  <div class="container mx-auto flex flex-col justify-center items-center w-full max-w-xl h-screen">
+    <div class="w-[500px]">
+      <div class="cursor-pointer flex justify-start items-center">
+        <router-link to="/">
+          <Icon icon="material-symbols:arrow-back" color="#FFC90B" class="text-[40px]" />
+        </router-link>
       </div>
-      <div className='mx-3 mb-6 flex flex-wrap'>
-        <div class='w-full px-3'>
-          <label class='mb-1 block uppercase tracking-wide text-lg'>
-            E-mail
-          </label>
+      <h1 class="text-center my-4 text-white font-bold text-4xl mb-8">Cadastre-se rapidamente!</h1>
+      <div className='flex flex-wrap'>
+        <div class='w-full'>
           <input
-            class='block w-full appearance-none rounded border border-gray-50 bg-gray-50 px-4 py-3 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none'
-            type='email' required v-model="email" />
+            class='block w-full appearance-none rounded border border-gray-50 bg-gray-50 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none placeholder-black text-xl p-6'
+            type='email' required v-model="email" placeholder="E-mail" />
           <span class="text-xs ms-1 mt-4 text-rose-500" v-if="error?.email">Email inválido.</span>
         </div>
-        <div class='w-full px-3 mt-5'>
-          <label class='mb-1 block uppercase tracking-wide text-lg'>
-            Senha
-          </label>
+        <div class='w-full mt-5'>
           <input
-            class='block w-full appearance-none rounded border border-gray-50 bg-gray-50 px-4 py-3 leading-tight text-gray-700 focus:border-gray-500 focus:bg-white focus:outline-none'
-            type='password' required v-model="password" />
+            class='block w-full appearance-none rounded border border-gray-50 bg-gray-50 leading-tight text-gray-700 focus:border-gray-500 placeholder-black focus:bg-white focus:outline-none text-xl p-6'
+            type='password' required v-model="password" placeholder="Senha" />
           <span class="text-xs ms-1 mt-4 text-rose-500" v-if="error?.password">Senha deve ter 6 dígitos.</span>
         </div>
+        <div class="w-full mt-2" v-if="error.length != 0">
+          <span class="text-base ms-1 text-red-400">Email e/ou senha incorretos.</span>
+        </div>
       </div>
-      <div class="my-6 flex justify-center items-center rounded cursor-pointer">
-        <button class="bg-gray-500 text-white hover:bg=gray=700 py-2 px-20" @click.prevent="createUser()">Entrar</button>
-      </div>
+      <button class="w-full bg-[#FFC90B] mt-4 hover:bg-[#ffca0be5] p-6 rounded text-xl tx-[#333B65] font-bold"
+        @click.prevent=createUser()>
+        Crie um usuário
+      </button>
     </div>
   </div>
 </template>
