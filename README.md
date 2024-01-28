@@ -5,7 +5,7 @@
   1. Crie um arquivo database.sqlite dentro de database
   2. Copie o .env.example no .env
   3. Rode php artisan migrate
-  4. Rode php artisan swecw
+  4. Rode php artisan server
  
 - FRONT
 
