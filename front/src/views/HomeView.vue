@@ -1,5 +1,5 @@
 <script>
-import { useApi, instance } from "../services";
+import { useApi } from "../services";
 import UrlTable from "../components/UrlTable.vue";
 
 export default {
@@ -43,11 +43,12 @@ export default {
         })
     },
     getUrls() {
+      console.log("teste")
       useApi().get('url')
         .then((response) => {
           this.urls = response.data;
         })
-    }
+    },
   }
 }
 </script>
@@ -72,7 +73,7 @@ export default {
         Gerar
       </button>
     </div>
-    <UrlTable :urls="urls" />
+    <UrlTable :urls="urls" @update-page="getUrls" />
   </div>
 </template>
 

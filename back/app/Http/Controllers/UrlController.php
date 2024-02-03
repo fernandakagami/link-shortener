@@ -48,4 +48,18 @@ class UrlController extends Controller
         }          
       
     }
+
+    public function update(Request $request, $id)
+    {             
+        $url = Url::findOrFail($id);
+        $url['original_url'] = $request->original_url;       
+        $url->save();        
+        return response($url, 200);                 
+    }
+
+    public function destroy(int $id)
+    {
+        Url::destroy($id);
+        return response(200);      
+    }
 }

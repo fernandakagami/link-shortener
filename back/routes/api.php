@@ -24,7 +24,8 @@ use App\Http\Controllers\UrlController;
 Route::middleware('auth:sanctum')->group(function () {   
     Route::get('/url', [UrlController::class, 'index']);
     Route::post('/url', [UrlController::class, 'store']); 
-
+    Route::patch('/url/{id}', [UrlController::class, 'update']);
+    Route::delete('/url/{id}', [UrlController::class, 'destroy']);    
     Route::post('/logout', [LoginController::class, 'logout']);    
 });
 
